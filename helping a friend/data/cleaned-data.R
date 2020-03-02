@@ -27,7 +27,7 @@ dataset$sub_overc <- as.integer(dataset$sub_overc)
 dataset <- separate(dataset, mon_inc, c("mon_inc", "inc_level"), sep = '\\(', remove = T)
 dataset <- separate(dataset, inc_level, c("inc_level", NA), sep = '\\)', remove = T)
 
-dataset$children <- ifelse(dataset$children == "No Children", 0,
+dataset$children <- ifelse(dataset$children == "No Child", 0,
                            ifelse(dataset$children == "Children <18 years old", 1, 2))
 dataset$children <- as.integer(dataset$children)
 
