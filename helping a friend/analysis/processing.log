@@ -1,0 +1,82 @@
+-------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/Boo Boo/Downloads/Helper/Analysis/processing.log
+  log type:  text
+ opened on:   1 Mar 2020, 16:40:12
+
+. 
+. label variable infecon "Use of Informal Economy"
+
+. label variable tot_motv "Total Motives"
+
+. label variable main_motv "Main Motives"
+
+. label variable age "Age"
+
+. label variable gender "Gender"
+
+. label variable marr "Marital Status"
+
+. label variable children "Number of children"
+
+. label variable emp "Occupation"
+
+. label variable mon_inc "Monthly Income"
+
+. label variable address "Address"
+
+. label variable address_len "Time in Address"
+
+. label variable tax_mor "Tax Morality"
+
+. label variable tax_evd "Tax Obligation Evaded"
+
+. label variable cash_perc "Percentage of Cash in All Transactions"
+
+. label variable where_cash "Where use cash"
+
+. label variable where_nocash "Where cashless"
+
+. label variable sub_overc "Perception that rice is higher than should be"
+
+. label variable bargain_freq "Frequency of bargaining when purchasing"
+
+. label variable online_freq "Online purchaing frequency"
+
+. 
+. codebook, compact
+
+Variable      Obs Unique      Mean  Min  Max  Label
+-------------------------------------------------------------------------------------------------------------
+infecon       281      2  .8220641    0    1  Use of Informal Economy
+tot_motv      280     34         .    .    .  Total Motives
+main_motv     278      5  2.618705    1    5  Main Motives
+age           281      6         .    .    .  Age
+gender        281      2         .    .    .  Gender
+marr          281      2         .    .    .  Marital Status
+children      281      3         .    .    .  Number of children
+emp           281      8         .    .    .  Occupation
+mon_inc       281      9         .    .    .  Monthly Income
+address       281      2         .    .    .  Address
+address_len   279     58  20.05197    0  100  Time in Address
+tax_mor       281      2         .    .    .  Tax Morality
+tax_evd       280      3         .    .    .  Tax Obligation Evaded
+cash_perc     281     10         .    .    .  Percentage of Cash in All Transactions
+where_cash    280     14         .    .    .  Where use cash
+where_nocash  259     13         .    .    .  Where cashless
+sub_overc     279      2         .    .    .  Perception that rice is higher than should be
+bargain_freq  281      5  3.149466    1    5  Frequency of bargaining when purchasing
+online_freq   281      5  3.291815    1    5  Online purchaing frequency
+-------------------------------------------------------------------------------------------------------------
+
+. 
+. save Data/processing.dta, replace
+file Data/processing.dta saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/Boo Boo/Downloads/Helper/Analysis/processing.log
+  log type:  text
+ closed on:   1 Mar 2020, 16:40:12
+-------------------------------------------------------------------------------------------------------------

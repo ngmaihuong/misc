@@ -1,0 +1,20 @@
+------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/Boo Boo/Downloads/Helper/Analysis/processing1.log
+  log type:  text
+ opened on:   1 Mar 2020, 17:38:44
+
+. 
+. keep infecon gender marr children inc_level sub_overc bargain_freq
+
+. 
+. save Data/processing1.dta, replace
+file Data/processing1.dta saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/Boo Boo/Downloads/Helper/Analysis/processing1.log
+  log type:  text
+ closed on:   1 Mar 2020, 17:38:44
+------------------------------------------------------------------------------------------------------------------------

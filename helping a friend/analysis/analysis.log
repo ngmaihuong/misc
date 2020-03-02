@@ -1,0 +1,187 @@
+------------------------------------------------------------------------------------------------------------------------
+      name:  <unnamed>
+       log:  /Users/Boo Boo/Downloads/Helper/Analysis/analysis.log
+  log type:  text
+ opened on:   1 Mar 2020, 17:59:43
+
+. 
+. label variable infecon "Use of Informal Economy"
+
+. label variable gender "Gender"
+
+. label variable marr "Marital Status"
+
+. label variable children "Number of children"
+
+. label variable inc_level "Income Level"
+
+. label variable sub_overc "Perception that rice is higher than should be"
+
+. label variable bargain_freq "Frequency of bargaining when purchasing"
+
+. 
+. codebook, compact
+
+Variable      Obs Unique      Mean  Min  Max  Label
+------------------------------------------------------------------------------------------------------------------------
+infecon       279      2  .8243728    0    1  Use of Informal Economy
+gender        279      2  .6594982    0    1  Gender
+marr          279      2  .4408602    0    1  Marital Status
+children      279      2  1.681004    1    2  Number of children
+inc_level     279      9  3.587814    1   10  Income Level
+sub_overc     279      2  .7132616    0    1  Perception that rice is higher than should be
+bargain_freq  279      5  3.150538    1    5  Frequency of bargaining when purchasing
+------------------------------------------------------------------------------------------------------------------------
+
+. 
+. reg infecon gender, r //(1)
+
+Linear regression                               Number of obs     =        279
+                                                F(1, 277)         =       0.05
+                                                Prob > F          =     0.8196
+                                                R-squared         =     0.0002
+                                                Root MSE          =     .38184
+
+------------------------------------------------------------------------------
+             |               Robust
+     infecon |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      gender |  -.0109268   .0478601    -0.23   0.820    -.1051425     .083289
+       _cons |   .8315789   .0385346    21.58   0.000     .7557212    .9074367
+------------------------------------------------------------------------------
+
+. outreg2 using Analysis/bargain.xls, replace
+Analysis/bargain.xls
+dir : seeout
+
+. 
+. reg infecon gender marr, r //(2)
+
+Linear regression                               Number of obs     =        279
+                                                F(2, 276)         =       4.06
+                                                Prob > F          =     0.0183
+                                                R-squared         =     0.0270
+                                                Root MSE          =     .37737
+
+------------------------------------------------------------------------------
+             |               Robust
+     infecon |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      gender |  -.0146955   .0476796    -0.31   0.758    -.1085574    .0791664
+        marr |   .1254803     .04403     2.85   0.005     .0388031    .2121575
+       _cons |   .7787452   .0444709    17.51   0.000     .6911999    .8662904
+------------------------------------------------------------------------------
+
+. outreg2 using Analysis/bargain.xls, append
+Analysis/bargain.xls
+dir : seeout
+
+. 
+. reg infecon gender marr children, r //(3)
+
+Linear regression                               Number of obs     =        279
+                                                F(3, 275)         =       3.52
+                                                Prob > F          =     0.0156
+                                                R-squared         =     0.0280
+                                                Root MSE          =     .37786
+
+------------------------------------------------------------------------------
+             |               Robust
+     infecon |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      gender |   -.015855   .0475343    -0.33   0.739    -.1094324    .0777224
+        marr |   .1503139      .0474     3.17   0.002      .057001    .2436269
+    children |   .0372729   .0481959     0.77   0.440    -.0576069    .1321527
+       _cons |   .7059058   .1059842     6.66   0.000     .4972623    .9145494
+------------------------------------------------------------------------------
+
+. outreg2 using Analysis/bargain.xls, append
+Analysis/bargain.xls
+dir : seeout
+
+. 
+. reg infecon gender marr children sub_overc, r //(4)
+
+Linear regression                               Number of obs     =        279
+                                                F(4, 274)         =       3.22
+                                                Prob > F          =     0.0133
+                                                R-squared         =     0.0338
+                                                Root MSE          =     .37742
+
+------------------------------------------------------------------------------
+             |               Robust
+     infecon |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      gender |  -.0182121   .0476884    -0.38   0.703    -.1120944    .0756702
+        marr |   .1360187   .0498302     2.73   0.007     .0379201    .2341174
+    children |   .0302819   .0478803     0.63   0.528    -.0639782     .124542
+   sub_overc |   .0650167   .0568007     1.14   0.253    -.0468046     .176838
+       _cons |   .6791404   .1081871     6.28   0.000     .4661568     .892124
+------------------------------------------------------------------------------
+
+. outreg2 using Analysis/bargain.xls, append
+Analysis/bargain.xls
+dir : seeout
+
+. 
+. reg infecon gender marr children sub_overc bargain_freq, r //(5)
+
+Linear regression                               Number of obs     =        279
+                                                F(5, 273)         =       3.27
+                                                Prob > F          =     0.0069
+                                                R-squared         =     0.0379
+                                                Root MSE          =     .37729
+
+------------------------------------------------------------------------------
+             |               Robust
+     infecon |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      gender |  -.0283484   .0460334    -0.62   0.539     -.118974    .0622772
+        marr |   .1209362   .0529541     2.28   0.023      .016686    .2251865
+    children |   .0330756   .0468691     0.71   0.481    -.0591952    .1253464
+   sub_overc |   .0500761   .0595025     0.84   0.401     -.067066    .1672182
+bargain_freq |   .0217558   .0203828     1.07   0.287    -.0183717    .0618833
+       _cons |   .6298925   .1163513     5.41   0.000     .4008327    .8589522
+------------------------------------------------------------------------------
+
+. outreg2 using Analysis/bargain.xls, append
+Analysis/bargain.xls
+dir : seeout
+
+. 
+. reg infecon gender marr children sub_overc bargain_freq inc_level, r //(6)
+
+Linear regression                               Number of obs     =        279
+                                                F(6, 272)         =       4.10
+                                                Prob > F          =     0.0006
+                                                R-squared         =     0.0562
+                                                Root MSE          =     .37437
+
+------------------------------------------------------------------------------
+             |               Robust
+     infecon |      Coef.   Std. Err.      t    P>|t|     [95% Conf. Interval]
+-------------+----------------------------------------------------------------
+      gender |  -.0087571    .046988    -0.19   0.852    -.1012634    .0837492
+        marr |   .0406719   .0584706     0.70   0.487    -.0744405    .1557844
+    children |   .0413427   .0449114     0.92   0.358    -.0470754    .1297609
+   sub_overc |   .0501619   .0591451     0.85   0.397    -.0662785    .1666023
+bargain_freq |    .019801   .0201213     0.98   0.326    -.0198122    .0594142
+   inc_level |   .0316954   .0110249     2.87   0.004     .0099904    .0534004
+       _cons |   .5308405   .1202166     4.42   0.000     .2941671    .7675138
+------------------------------------------------------------------------------
+
+. outreg2 using Analysis/bargain.xls, append
+Analysis/bargain.xls
+dir : seeout
+
+. 
+. save Data/analysis.dta, replace
+file Data/analysis.dta saved
+
+. 
+. log close
+      name:  <unnamed>
+       log:  /Users/Boo Boo/Downloads/Helper/Analysis/analysis.log
+  log type:  text
+ closed on:   1 Mar 2020, 17:59:44
+------------------------------------------------------------------------------------------------------------------------
